@@ -9,7 +9,42 @@ body {background: #000000;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
 }
+@media screen and (max-width: 768px) {  
+    /* Ajustar el contenedor para que no se vea tan delgado */
+    #c {
+        width: 90%;
+        max-width: 400px; /* Evita que se haga demasiado ancho en tablets */
+    }
 
+    /* Ajustar las imágenes para que no sean tan pequeñas */
+    #b {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Botón más accesible en móviles */
+    #cc {
+        width: 80%;
+        font-size: 16px;
+        height: 55px;
+    }
+
+    /* Mejorar la navegación en móviles */
+    #ff {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    /* Asegurar que los botones del menú sean más grandes */
+    #q {
+        width: 100%;
+        font-size: 16px;
+        height: 50px;
+    }
+}
 
 
     #ff{ 
