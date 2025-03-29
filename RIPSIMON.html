@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
     body {
-        background: linear-gradient(to bottom, green, black);
+        background: linear-gradient(to bottom, #000000, #004d00);
         height: 100vh;
         margin: 0;
         display: flex;
@@ -19,28 +19,66 @@
 
     #b {
         width: auto;
-        min-width: 80px;
-        height: 40px;
-        background-color: #484640;
+        min-width: 100px;
+        height: 45px;
+        background: linear-gradient(to right, #008000, #004d00);
         cursor: pointer;
         transition: background-color 0.3s, transform 0.2s;
         border: none;
         color: white;
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 8px;
         font-size: 16px;
         margin: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     #b:hover {
-        background-color: #49661c;
+        transform: scale(1.05);
     }
 
     img {
         width: 50%;
         max-width: 300px;
-        border-radius: 10px;
+        border-radius: 15px;
         margin-bottom: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .contenedor-barra {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .barra-progreso {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        background: linear-gradient(to right, #00cc00, #008000);
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .barra-progreso::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 2px solid #00cc00;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .tiempo {
+        font-size: 14px;
+        color: white;
+        min-width: 40px;
+        text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -50,7 +88,7 @@
         #b {
             width: 100%;
             font-size: 14px;
-            height: 35px;
+            height: 40px;
         }
     }
 </style>
@@ -68,5 +106,36 @@
 <button id="b" onclick="document.getElementById('a').currentTime -= 10;">-10s</button>
 <button id="b" onclick="document.getElementById('a').currentTime += 5;">+5s</button>
 <button id="b" onclick="document.getElementById('a').currentTime -= 5;">-5s</button>
+
+<div class="contenedor-barra">
+    <span id="tiempoActual" class="tiempo">0:00</span>
+    <input type="range" id="barraProgreso" class="barra-progreso" min="0" step="1" value="0">
+    <span id="tiempoTotal" class="tiempo">0:00</span>
+</div>
+
+<script>
+    let audio = document.getElementById("a");
+    let barra = document.getElementById("barraProgreso");
+    let tiempoActual = document.getElementById("tiempoActual");
+    let tiempoTotal = document.getElementById("tiempoTotal");
+
+    audio.addEventListener("timeupdate", () => {
+        barra.max = audio.duration;
+        barra.value = audio.currentTime;
+        tiempoActual.textContent = formatearTiempo(audio.currentTime);
+        tiempoTotal.textContent = formatearTiempo(audio.duration);
+    });
+
+    barra.addEventListener("input", () => {
+        audio.currentTime = barra.value;
+    });
+
+    function formatearTiempo(segundos) {
+        if (isNaN(segundos)) return "0:00";
+        let min = Math.floor(segundos / 60);
+        let sec = Math.floor(segundos % 60);
+        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }
+</script>
 </body>
 </html>
