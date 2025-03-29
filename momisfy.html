@@ -10,45 +10,54 @@ background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-2
 background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
 }
 @media screen and (max-width: 768px) {  
-    /* Asegurar que los contenedores tengan buen tamaño en móviles */
-    #c {
-        width: auto;
-        max-width: 90%;
-        min-width: 300px;
-    }
-
-    /* Evitar que las imágenes sean demasiado pequeñas o se deformen */
-    #b {
-        width: 100%;
-        height: auto;
-        max-width: 400px;
-        object-fit: cover;
-    }
-
-    /* Ajustar los botones para que se vean mejor en móviles */
-    #cc {
-        width: auto;
-        max-width: 80%;
-        font-size: 14px;
-        height: 50px;
-        text-align: center;
-    }
-
-    /* Arreglar la barra de navegación */
+    /* 🔹 MENÚ DE NAVEGACIÓN RESPONSIVE */
     #ff {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-        padding: 10px;
+        justify-content: space-around; /* Distribuye los botones de manera uniforme */
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+        background-color: #484640; /* Asegurar que el fondo se vea bien */
+        border-radius: 0; /* Evitar bordes curvos en móviles */
     }
 
     #q {
-        width: auto;
-        min-width: 80px;
+        flex: 1; /* Hace que los botones ocupen el mismo espacio */
+        min-width: auto;
+        max-width: 100px; /* Evita que sean demasiado grandes */
+        text-align: center;
         font-size: 14px;
         height: 45px;
+    }
+
+    /* 🔹 AJUSTE DE CONTENEDORES Y BOTONES DE MÚSICA */
+    #c {
+        text-align: center; /* Centra el contenido */
+        width: auto;
+        max-width: 90%;
+        min-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* 🔹 IMÁGENES ADAPTADAS A MÓVIL */
+    #b {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        margin: 0 auto; /* Centra la imagen */
+        object-fit: cover; /* Evita deformaciones */
+    }
+
+    /* 🔹 BOTONES DEBAJO DE LAS IMÁGENES */
+    #cc {
+        display: block;
+        width: 90%; /* Botón más grande */
+        max-width: 300px;
+        font-size: 16px;
+        height: 55px;
         text-align: center;
+        margin: 10px auto; /* Centra el botón debajo de la imagen */
     }
 }
 
