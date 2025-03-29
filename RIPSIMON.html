@@ -1,0 +1,148 @@
+<html>	
+<head>
+<title>
+momisfy
+</title>
+
+
+<style>
+   
+    #b {
+
+  width:20%;
+   height:50px;
+   background-color:484640;
+
+
+
+   cursor: pointer; 
+   transition: background-color 0.3s, transform 0.2s;
+   border: none;
+   color:white;  
+
+}
+ #b:hover {
+ background-color:49661c;
+}
+</style>
+
+
+
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, green, black);
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<a href="momisfy.html"><font color="white" size="20" face="Cascadia Mono SemiBold">volver</font></a>
+<center>
+<img src="fotos.jpg" width="20%"> <br> <br> <br> <br>
+
+<audio id="a" src="dtmf.mp3" > </audio>
+<button id="b" onclick="document.getElementById('a').play()";> play </button>
+<button id="b" onclick="document.getElementById('a').pause()";> pause </button>
+<button id="b" onclick="document.getElementById('a').currentTime = 0;">Reset </button> 
+<button id="b" onclick="document.getElementById('a').currentTime += 10;"> +10s </button><p>
+<button id="b" onclick="document.getElementById('a').currentTime -= 10;"> -10s </button>
+<button id="b" onclick="document.getElementById('a').currentTime += 5;"> +5s </button>
+<button id="b" onclick="document.getElementById('a').currentTime -= 5;"> -5s </button>
+<p>
+<style>
+    .contenedor-barra {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 400px;
+        font-family: Arial, sans-serif;
+    }
+
+    .barra-progreso {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        background: linear-gradient(to right, #f5af19, #f12711);
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .barra-progreso:hover {
+        opacity: 0.8;
+    }
+
+    .barra-progreso::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 2px solid #f12711;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .barra-progreso::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 2px solid #f12711;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .tiempo {
+        font-size: 14px;
+        color: #555;
+        min-width: 40px;
+        text-align: center;
+    }
+</style>
+
+<div class="contenedor-barra">
+    <span id="tiempoActual" class="tiempo">0:00</span>
+    <input type="range" id="barraProgreso" class="barra-progreso" min="0" step="1" value="0">
+    <span id="tiempoTotal" class="tiempo">0:00</span>
+</div>
+
+<script>
+    let audio = document.getElementById("a");
+    let barra = document.getElementById("barraProgreso");
+    let tiempoActual = document.getElementById("tiempoActual");
+    let tiempoTotal = document.getElementById("tiempoTotal");
+
+    // Actualiza la barra y el tiempo actual
+    audio.addEventListener("timeupdate", () => {
+        barra.max = audio.duration; 
+        barra.value = audio.currentTime;
+        tiempoActual.textContent = formatearTiempo(audio.currentTime);
+        tiempoTotal.textContent = formatearTiempo(audio.duration);
+    });
+
+    // Permitir adelantar la canción con la barra
+    barra.addEventListener("input", () => {
+        audio.currentTime = barra.value;
+    });
+
+    // Formatear segundos a mm:ss
+    function formatearTiempo(segundos) {
+        if (isNaN(segundos)) return "0:00";
+        let min = Math.floor(segundos / 60);
+        let sec = Math.floor(segundos % 60);
+        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }
+</script>
+
+
+
+</p>
+
+</div>
+</center>
+</body>
+</html>
