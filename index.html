@@ -1,89 +1,113 @@
-<html>	
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<title>
-momisfy
-</title>
+<title>Momisfy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-   body {background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
-}
+   body {
+      background: linear-gradient(to right, #434343, #000000);
+      color: white;
+      font-family: "Cascadia Mono SemiBold", monospace;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+   }
 
+   #ff { 
+      width: 100%;
+      height: 50px;
+      background-color: #484640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+   }
 
+   #ff a {
+      text-decoration: none;
+   }
 
+   #q { 
+      width: auto;
+      min-width: 80px;
+      height: 40px;
+      background-color: #484640;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+   }
 
+   #q:hover {
+      background-color: #302f2b;
+   }
 
- #ff{ 
-  width:100%;
-   height:50px;
-   background-color:484640;
+   .contenido {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 18px;
+   }
 
-   border-radius: 10px; 
-   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-   border: none;
-   color:white;  
-}
+   h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+   }
 
-    #q{ 
-  width:20%;
-   height:50px;
-   background-color:484640;
+   p {
+      font-size: 16px;
+      line-height: 1.5;
+   }
 
+   @media (max-width: 768px) {
+      #ff {
+         flex-direction: column;
+         height: auto;
+         gap: 5px;
+      }
 
+      #q {
+         width: 100%;
+         font-size: 14px;
+         height: 35px;
+      }
 
-   cursor: pointer; 
-   transition: background-color 0.3s, transform 0.2s;
-   border: none;
-   color:white;  
-}
+      .contenido {
+         width: 90%;
+         font-size: 16px;
+      }
 
- #q:hover {
- background-color:302f2b;
+      h1 {
+         font-size: 30px;
+      }
 
-    }
- 
-
-
-
-
-
+      p {
+         font-size: 14px;
+      }
+   }
 </style>
-
 </head>
-<body bgcolor="black">
-<center>
-<div id="ff">
-<a href="index.html">
-<button id="q"> home </button> </a>
-<a href="momisfy.html">
-<button id="q"> musica </button>
-</a>
-<a href="artistas.html">
+<body>
+   <div id="ff">
+      <a href="index.html"><button id="q">Home</button></a>
+      <a href="momisfy.html"><button id="q">Música</button></a>
+      <a href="artistas.html"><button id="q">Artistas</button></a>
+      <a href="sencillos.html"><button id="q">Sencillos</button></a>
+   </div>
 
-<button id="q"> artistas </button>
-</a>
-
-<a href="sencillos.html"> 
-<button id="q"> sencillos </button>
-</a>
-</div>
-</center>
-
-<font color="white" size="50" face="Cascadia Mono SemiBold">
-<p> <center> momisfy </center> </p> </font>
-<font color="white" size="5" face="Cascadia Mono SemiBold">
-<p><strong>Descubre Momisfy: Música sin interrupciones</strong></p>  
-
-<p>¿Cansado de los anuncios que interrumpen tu música favorita? Con <strong>Momisfy</strong>, disfruta de tus canciones sin interrupciones, sin pausas y sin límites. Nuestra plataforma está diseñada para ofrecerte la mejor experiencia musical, con una interfaz intuitiva y un catálogo infinito de canciones de todos los géneros.</p>  
-
-<p>🎶 <strong>Escucha sin anuncios</strong></p>  
-<p>📀 <strong>Accede a millones de canciones</strong></p>  
-<p>📱 <strong>Disponible en todos tus dispositivos</strong></p>  
-
-<p>Con <strong>Momisfy</strong>, la música fluye sin distracciones. Dale play y sumérgete en el sonido que amas.</p>  
-
-<p>🔊 <strong>Descárgala ahora y disfruta de la música como nunca antes.</strong></p>  
-<center>
-
+   <div class="contenido">
+      <h1>Momisfy</h1>
+      <p><strong>Descubre Momisfy: Música sin interrupciones</strong></p>
+      <p>¿Cansado de los anuncios que interrumpen tu música favorita? Con <strong>Momisfy</strong>, disfruta de tus canciones sin interrupciones, sin pausas y sin límites. Nuestra plataforma está diseñada para ofrecerte la mejor experiencia musical, con una interfaz intuitiva y un catálogo infinito de canciones de todos los géneros.</p>
+      <p>🎶 <strong>Escucha sin anuncios</strong></p>
+      <p>📀 <strong>Accede a millones de canciones</strong></p>
+      <p>📱 <strong>Disponible en todos tus dispositivos</strong></p>
+      <p>Con <strong>Momisfy</strong>, la música fluye sin distracciones. Dale play y sumérgete en el sonido que amas.</p>
+      <p>🔊 <strong>Descárgala ahora y disfruta de la música como nunca antes.</strong></p>
+   </div>
 </body>
 </html>
