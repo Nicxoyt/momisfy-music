@@ -1,214 +1,135 @@
-<html>	
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<title>
-momisfy - escuchar
-</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
-}
-@media screen and (max-width: 768px) {  
-    /* 🔹 MENÚ DE NAVEGACIÓN RESPONSIVE */
-    #ff {
-        display: flex;
-        justify-content: space-around; /* Distribuye los botones de manera uniforme */
-        align-items: center;
-        width: 100%;
-        padding: 10px 0;
-        background-color: #484640; /* Asegurar que el fondo se vea bien */
-        border-radius: 0; /* Evitar bordes curvos en móviles */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>momisfy - Escuchar</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #434343, #000000);
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    #q {
-        flex: 1; /* Hace que los botones ocupen el mismo espacio */
-        min-width: auto;
-        max-width: 100px; /* Evita que sean demasiado grandes */
-        text-align: center;
-        font-size: 14px;
-        height: 45px;
+    /* Menú de navegación */
+    #ff { 
+      width: 100%;
+      height: 50px;
+      background-color: #484640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
     }
 
-    /* 🔹 AJUSTE DE CONTENEDORES Y BOTONES DE MÚSICA */
-    #c {
-        text-align: center; /* Centra el contenido */
-        width: auto;
-        max-width: 90%;
-        min-width: 300px;
-        margin: 0 auto;
+    #ff a {
+      text-decoration: none;
+      background-color: #484640;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: background-color 0.3s ease-in-out;
     }
 
-    /* 🔹 IMÁGENES ADAPTADAS A MÓVIL */
-    #b {
-        display: block;
-        width: 100%;
+    #ff a:hover {
+      background-color: #302f2b;
+    }
+
+    /* Contenedor de tarjetas */
+    .contenedor {
+      width: 30%;
+      padding: 20px;
+      background: linear-gradient(to right, #434343, #000000);
+      border-radius: 10px;
+      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .contenedor img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Botón de cada tarjeta */
+    .contenedor a button {
+      background-color: green;
+      border-radius: 10px;
+      padding: 10px 15px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .contenedor a button:hover {
+      background-color: #49661c;
+      transform: scale(1.05);
+    }
+
+    /* Responsivo para móviles */
+    @media (max-width: 768px) {
+      #ff {
+        flex-direction: column;
         height: auto;
-        max-width: 400px;
-        margin: 0 auto; /* Centra la imagen */
-        object-fit: cover; /* Evita deformaciones */
+        gap: 5px;
+      }
+
+      #ff a {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      .contenedor {
+        width: 80%;
+        padding: 15px;
+      }
+
+      .contenedor img {
+        max-width: 150px;
+      }
+
+      .contenedor a button {
+        padding: 8px 12px;
+        font-size: 14px;
+      }
     }
-
-    /* 🔹 BOTONES DEBAJO DE LAS IMÁGENES */
-    #cc {
-        display: block;
-        width: 90%; /* Botón más grande */
-        max-width: 300px;
-        font-size: 16px;
-        height: 55px;
-        text-align: center;
-        margin: 10px auto; /* Centra el botón debajo de la imagen */
-    }
-}
-
-
-
-    #ff{ 
-  width:100%;
-   height:50px;
-   background-color:484640;
-
-   border-radius: 10px; 
-   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-   border: none;
-   color:white;  
-}
-
-    #q{ 
-  width:20%;
-   height:50px;
-   background-color:484640;
-
-
-
-   cursor: pointer; 
-   transition: background-color 0.3s, transform 0.2s;
-   border: none;
-   color:white;  
-}
-
-
-    #cc{ 
-  width:35%;
-   height:50px;
-   background-color:green;
-
-   border-radius: 10px; 
-   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-   cursor: pointer; 
-   transition: background-color 0.3s, transform 0.2s;
-   border: none;
-   color:white;  
-}
-
- #q:hover {
- background-color:302f2b;
-
-    }
- 
- #cc:hover {
- background-color:49661c;
-
-    }
-
- #b:hover {
- background-color:49661c;
-
-    }
- #c:hover {
- background-color:49661c;
- transform: scale(1.10);
-    }
-
-    #b {
-
-        width:60%;
-   height:320px;
-   background-color:background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-;
-   border-radius: 10px; 
-   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); 
-   transition: background-color 0.3s, transform 0.2s;
-   border:none;
-}
-
- #c {
-
-        width:30%;
-   height:440px;
-   background-color:background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
-   border-radius: 10px; 
-   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
-   transition: background-color 0.3s, transform 0.2s;
-   border: none;
-   color:white;  
-}
-
-
-
-</style>
-
-
+  </style>
 </head>
 <body>
-<center>
-<div id="ff">
-<a href="index.html">
-<button id="q"> home </button> </a>
-<a href="momisfy.html">
-<button id="q"> musica </button>
-</a>
-<a href="artistas.html">
 
-<button id="q"> artistas </button>
-</a>
+  <nav id="ff">
+    <a href="index.html">Home</a>
+    <a href="momisfy.html">Música</a>
+    <a href="artistas.html">Artistas</a>
+    <a href="sencillos.html">Sencillos</a>
+  </nav>
 
-<a href="sencillos.html"> 
-<button id="q"> sencillos </button>
-</a>
-</div> 
+  <center>
+    <section class="contenedor">
+      <img src="fotos.jpg" alt="Foto">
+      <br><br>
+      <a href="RIPSIMON.html"><button>DeBI TIRAR Mas FOToS - Bad Bunny</button></a>
+    </section>
 
+    <section class="contenedor">
+      <img src="momos.jpg" alt="Momos">
+      <br><br>
+      <a href="momos.html"><button>Los Momos</button></a>
+    </section>
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<div id="c">
-<br>
-<img src="fotos.jpg" id="b" width="10%">
-<br> <br>
-<a href="RIPSIMON.html">  <button id="cc">DeBI TIRAR Mas FOToS - bad bunny</button>  </a>
-
-</div>
-<br>
-<br>
-<br>
-<div id="c">
-<br>
-<img src="momos.jpg" id="b" width="10%">
-<br> <br>
-<a href="momos.html">  <button id="cc">los momos</button>  </a>
-
-</div>
-<br>
-<br>
-<br>
-<div id="c">
-<br>
-<img src="ripsimon.jpg" id="b" width="10%">
-<br> <br>
-<a href="momos.html">  <button id="cc">rip simon</button>  </a>
-
-</div>
+    <section class="contenedor">
+      <img src="ripsimon.jpg" alt="Rip Simon">
+      <br><br>
+      <a href="momos.html"><button>RIP Simon</button></a>
+    </section>
+  </center>
 
 </body>
 </html>
